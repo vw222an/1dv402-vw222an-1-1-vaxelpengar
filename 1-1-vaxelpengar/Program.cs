@@ -15,7 +15,9 @@ namespace _1_1_vaxelpengar
             double totalSum;
             double subTotal;
             double roundingOffAmount;
-            int totalAmount;
+            double totalAmount;
+            double cash;
+            double cashBack;
 
 
             Console.Write("Ange totalsumma  : ");
@@ -23,21 +25,26 @@ namespace _1_1_vaxelpengar
 
             Console.Write("Ange erhållet belopp : ");
             subTotal = double.Parse(Console.ReadLine());
+            cash = subTotal;
 
             subTotal = (uint)Math.Round(totalSum);
             roundingOffAmount = totalSum - subTotal;
+
+            totalAmount = totalSum - roundingOffAmount;
+            cashBack = cash - totalAmount;
 
             Console.Write("KVITTO");
 
             Console.WriteLine("Totalt: {0:c}", totalSum);
             Console.WriteLine("Öresavrundning: {0:c}", roundingOffAmount);
-            Console.Write("Att betala: ");
-            
+            Console.WriteLine("Att betala: {0:c}", totalAmount); 
+            Console.WriteLine("Kontant: {0:c} ", cash);
+            Console.WriteLine("Tillbaka: {0:c}", cashBack);
 
 
 
 
-            
+
         }
     }
 }
