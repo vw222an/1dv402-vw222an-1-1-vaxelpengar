@@ -13,7 +13,7 @@ namespace _1_1_vaxelpengar
             Console.Title = "Växelpengar - nivå A";
 
             double totalSum;
-            double subTotal;
+            int subTotal;
             double roundingOffAmount;
             double totalAmount;
             double cash;
@@ -24,10 +24,10 @@ namespace _1_1_vaxelpengar
             totalSum = double.Parse(Console.ReadLine());
 
             Console.Write("Ange erhållet belopp : ");
-            subTotal = double.Parse(Console.ReadLine());
+            subTotal = int.Parse(Console.ReadLine());
             cash = subTotal;
 
-            subTotal = (uint)Math.Round(totalSum);
+            subTotal = (int)Math.Round(totalSum);
             roundingOffAmount = totalSum - subTotal;
 
             totalAmount = totalSum - roundingOffAmount;
