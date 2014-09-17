@@ -25,16 +25,46 @@ namespace _1_1_vaxelpengar
             double tens;
             double fives;
             double ones;
-           
 
-                Console.Write("Ange totalsumma  : ");
-                totalSum = double.Parse(Console.ReadLine());
 
+                    Console.Write("Ange totalsumma  : ");
+                    totalSum = double.Parse(Console.ReadLine());
+            if (totalSum < 1)
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.WriteLine("Totalsumman är för liten. Köpet kunde inte genomföras.");
+                Console.ResetColor(); 
+                Environment.Exit(0);
+                
+            }
+
+            while (true)
+
+            {
+                try
+                {
+                Console.ResetColor();  
                 Console.Write("Ange erhållet belopp : ");
                 subTotal = int.Parse(Console.ReadLine());
-                cash = subTotal;
-
-
+                break;
+                }
+                catch
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.WriteLine("FEL! Erhållet belopp felaktigt.");
+                    
+                }
+            }
+            if (subTotal < totalSum)
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.WriteLine("Erhållet belopp är för litet. Köpet kunde inte genomföras.");
+                Console.ResetColor();  
+                Environment.Exit(0);
+            }
+ 
+                    
+            cash = subTotal;
             subTotal = (int)Math.Round(totalSum);
             roundingOffAmount = totalSum - subTotal;
 
@@ -48,8 +78,7 @@ namespace _1_1_vaxelpengar
             Console.WriteLine("Att betala: {0:c0}", totalAmount); 
             Console.WriteLine("Kontant: {0:c0} ", cash);
             Console.WriteLine("Tillbaka: {0:c0}", cashBack);
-
-
+                
 
             fiveHundreds = cashBack / 500;
             hundreds = cashBack % 500;
